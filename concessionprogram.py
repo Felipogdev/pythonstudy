@@ -13,6 +13,17 @@ for key, value in menu.items():
 print("-" * 24)
 
 while True:
-    food = input("Select an item from the menu (q to quit)")
+    food = input("Selecione um item no menu (digite q para sair)")
     if food == "q":
         break
+    elif food in menu:
+        cart.append(food)
+        total += menu[food]
+        print(f"Adicionado {food} ao carrinho. Valor total atual: ${total:.2f}")
+    else:
+        print("Item não está no menu. Por favor, selecione uma opção válida")
+
+print("Seu carrinho: ")
+for item in cart:
+    print(f"- {item}")
+print(f"Total = ${total:.2f}")
